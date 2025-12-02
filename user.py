@@ -9,13 +9,20 @@ class UserManager:
     
     def load_users(self):
         if os.path.exists(self.data_file):
-            with open(self.data_file, 'r') as f:
-                return json.load(f)
+            try:
+                with open(self.data_file, 'r') as f:
+                    content = f.read().strip()
+                    if not content:
+                        return {} 
+                    return json.loads(content)
+            except json.JSONDecodeError:
+                return {} 
         return {}
+
     
     def save_users(self, users):
         with open(self.data_file, 'w') as f:
-            json.dump(users, indent=4, fp=f)
+            json.dump(users, f, indent=4)
     
     def generate_user_id(self):
         letter = random.choice(string.ascii_uppercase)
@@ -84,6 +91,7 @@ class UserManager:
             return False
         if code != users[email]['id']:
             print("⚠️ Warning: Invalid verification code!")
+            print("Please contact the admin to recover your account.")
             return False
         
         age = input("Enter your age for verification: ").strip()
@@ -100,8 +108,8 @@ class UserManager:
     
     def produce_password(self):
         print("\n=== PASSWORD GENERATOR ===")
-        length = input("Enter password length (default 12): ").strip()
-        length = int(length) if length.isdigit() else 12
+        length = input("Enter password length: ").strip()
+        length = int(length) if length.isdigit() else 10    # random bir şey girerse 10 yap
         
         characters = string.ascii_letters + string.digits + "!@#$%^&*"
         password = ''.join(random.choice(characters) for _ in range(length))
