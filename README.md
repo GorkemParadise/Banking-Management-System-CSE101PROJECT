@@ -17,6 +17,8 @@ Admins can also see system reports and manage settings.
 
 -🔐 Account security, input validation, and error handling
 
+-🛠️ Admin dashboard for viewing all users and bank statistics
+
 -💾 Automatic backups for safe data storage
 
 ------------------------------------------------------------------------------------------
