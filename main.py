@@ -1,13 +1,14 @@
 import json
 import os
-from file_manager import File
-from report import Report
 from user import UserManager, User
 from admin import Admin
 from bank_operations import BankAccount
+from report import Report
 
 user_manager = UserManager()
 bank_manager = BankAccount() 
+admin_panel = Admin()
+ai_support = Report()
 current_user = None
 
 while True:
@@ -19,7 +20,9 @@ while True:
         print("-----------(2)--> Register <------------")
         print("-----------(3)--> Produce Password <----")
         print("-----------(4)--> Forgot Password <-----")
-        print("-----------(5)--> Support from AI <-----")
+        print("-----------(5)--> AI Support <----------")
+        print("-----------(6)--> Admin Panel <---------")
+        print("-----------(0)--> Exit Program <--------")
         print("----------------------------------------")
         menu_select = input("Select an option: ")
         
@@ -40,12 +43,34 @@ while True:
             user_manager.forgot_password()
         
         elif menu_select == "5":
-            print("AI Support coming soon...")
+            # AI Destek Sistemi
+            print("\n" + "="*60)
+            print("🤖 AI SUPPORT SYSTEM")
+            print("="*60)
+            print("1) Quick Help Guide (Hızlı Yardım Kılavuzu)")
+            print("2) Chat with AI Assistant (AI ile Sohbet)")
+            print("="*60)
+            
+            ai_choice = input("Select option: ").strip()
+            
+            if ai_choice == "1":
+                ai_support.quick_help()
+            elif ai_choice == "2":
+                ai_support.chat()
+            else:
+                print("⚠️ Invalid option!")
+        
+        elif menu_select == "6":
+            admin_panel.admin_panel()
+        
+        elif menu_select == "0":
+            print("\n👋 Thank you for using Paradise Bank! Goodbye!")
+            break
         
         else:
             print("⚠️ Invalid option!")
     
-    else: # Giriş
+    else: 
         print("\n========================================")
         print("Paradise Bank - Banking Services")
         print("========================================")
@@ -54,7 +79,8 @@ while True:
         print("-----------(3)--> Payments <------------")
         print("-----------(4)--> Foreign Exchange <----")
         print("-----------(5)--> Savings Tips <--------")
-        print("-----------(6)--> Logout <--------------")
+        print("-----------(6)--> AI Support <----------")
+        print("-----------(7)--> Logout <--------------")
         print("========================================")
         banking_select = input("Select an option: ")
         
@@ -74,8 +100,25 @@ while True:
             bank_manager.savings_tips()
         
         elif banking_select == "6":
+            print("\n" + "="*60)
+            print("🤖 AI SUPPORT SYSTEM")
+            print("="*60)
+            print("1) Quick Help Guide")
+            print("2) Chat with AI Assistant")
+            print("="*60)
+            
+            ai_choice = input("Select option: ").strip()
+            
+            if ai_choice == "1":
+                ai_support.quick_help()
+            elif ai_choice == "2":
+                ai_support.chat()
+            else:
+                print("⚠️ Invalid option!")
+        
+        elif banking_select == "7":
             print(f"\n👋 Goodbye {current_user.email}!")
-            current_user = None  # Logout
+            current_user = None 
         
         else:
             print("⚠️ Invalid option!")
