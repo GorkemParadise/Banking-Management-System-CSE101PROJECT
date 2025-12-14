@@ -138,7 +138,6 @@ class Report:
         }
     
     def normalize_text(self, text):
-        """Normalize text (lowercase, remove special characters)"""
         text = text.lower()
         # Remove Turkish characters for better matching
         replacements = {
@@ -149,7 +148,6 @@ class Report:
         return text
     
     def find_best_match(self, user_input):
-        """Find the best matching category for user input"""
         user_input_normalized = self.normalize_text(user_input)
         
         best_match = None
@@ -169,12 +167,10 @@ class Report:
         return best_match if max_score > 0 else None
     
     def check_faq(self, user_input):
-        """Check if there's an exact match in FAQ"""
         user_input_normalized = self.normalize_text(user_input)
         
         for question, answer in self.faq.items():
             question_normalized = self.normalize_text(question)
-            # Simple similarity check
             if question_normalized in user_input_normalized or user_input_normalized in question_normalized:
                 return answer
         return None
