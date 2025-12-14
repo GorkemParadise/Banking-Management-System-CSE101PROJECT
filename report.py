@@ -4,8 +4,6 @@ import re
 class Report:
     def __init__(self):
         self.conversation_history = []
-        
-        # Knowledge base with keywords
         self.knowledge_base = {
             'account': {
                 'keywords': ['account', 'open', 'create', 'new', 'make'],
@@ -110,10 +108,17 @@ class Report:
                     "Not a problem! Glad I could help. Need anything else?",
                     "Anytime! Have a great day. 🌟"
                 ]
+            },
+            'turkce': {
+                'keywords': ['sa', 'merhaba', 'naber', 'yardım', 'nasılsın', 'teşekkürler', 'hesap açma', 'para gönderme', 'ödeme', 'döviz', 'şifre', 'problem', 'teşekkür ederim', 'iyi günler', 'iyi akşamlar', 'iyi sabahlar', 'alo', 'para yatırma', 'para çekme'],
+                'responses': [
+                    " I'm sorry, we do not have Turkish support in our bank. I can assist you in English.",
+                    " I apologize, but our services are only available in English at the moment.",
+                    " Unfortunately, I can only provide assistance in English. How can I help you today?"
+                ]
             }
         }
         
-        # Default responses (when no match is found)
         self.default_responses = [
             "I'd like to help you with this, but I didn't quite understand. Could you provide more details?",
             "Interesting question! Which of these would you like information about: opening account, sending money, payments, currency exchange, or password issues?",
@@ -121,7 +126,6 @@ class Report:
             "At Paradise Bank, you can: Open accounts, transfer money, pay bills, exchange currency. Which one would you like to know about?"
         ]
         
-        # FAQ - Frequently Asked Questions
         self.faq = {
             'do i need virtual account for bill payment': "Yes! Bill payments can ONLY be made from virtual account. You cannot pay bills from daily usage account. You must open a virtual account first.",
             'is there welcome bonus': "Yes! When you open a daily usage account, you get 10,000 TL welcome bonus. This bonus is automatically credited to your account.",
@@ -176,16 +180,10 @@ class Report:
         return None
     
     def generate_response(self, user_input):
-        """Generate response based on user input"""
-        
-        # First check FAQ
         faq_answer = self.check_faq(user_input)
         if faq_answer:
             return faq_answer
-        
-        # Category matching
-        category = self.find_best_match(user_input)
-        
+        category = self.find_best_match(user_input) 
         if category:
             responses = self.knowledge_base[category]['responses']
             return random.choice(responses)
@@ -193,7 +191,6 @@ class Report:
             return random.choice(self.default_responses)
     
     def chat(self):
-        """AI Support Chatbot"""
         print("\n" + "="*60)
         print("🤖 PARADISE BANK AI ASSISTANT")
         print("="*60)
@@ -208,21 +205,17 @@ class Report:
             if not user_input:
                 continue
             
-            # Exit commands
             if self.normalize_text(user_input) in ['exit', 'quit', 'bye', 'goodbye']:
                 print("\n🤖 AI: Thank you for choosing Paradise Bank! Have a great day! 👋")
                 break
             
-            # Add to conversation history
             self.conversation_history.append({'user': user_input})
             
-            # Generate response
             response = self.generate_response(user_input)
             self.conversation_history.append({'bot': response})
             
             print(f"\n🤖 AI: {response}")
             
-            # Extra help for specific situations
             if 'problem' in self.normalize_text(user_input) or 'error' in self.normalize_text(user_input):
                 print("\n💡 Tip: If the problem continues, please share this information:")
                 print("   - Which menu option did you use?")
