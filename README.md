@@ -48,3 +48,50 @@ Admins can also see system reports and manage settings.
 -🛠️ Stack Overflow Community for debugging
 
 -📘 W3Schools Python Tutorials for learning specific functions
+
+------------------------------------------------------------------------------------------
+
+HOW TO USE
+------------------------------
+
+1. Download the Project
+
+Option 1: Download as ZIP
+Click the Code button on the GitHub repository page.
+Select Download ZIP.
+
+Option 2: Clone with Git
+git clone https://github.com/GorkemParadise/Banking-Management-System-CSE101PROJECT.git
+
+2. Requirements
+
+Python 3.14 or higher must be installed on your system.
+To check if Python is installed:
+python --version (generally)
+or
+python3 --version (for my pc)
+
+3. Run the Program
+
+Open a terminal or code app.
+cd Banking-Management-System-CSE101PROJECT
+Run the main file:
+python main.py
+or (if required on your system):
+python3 main.py
+
+4. Usage
+
+Follow the on-screen menu options.
+The program allows you to perform basic banking operations such as:
+Creating accounts
+Depositing money
+Withdrawing money
+Viewing account information
+(All operations are performed through the terminal.)
+
+5. Notes
+
+This project is a CSE101 educational project.
+Data is stored locally and resets when the program is restarted (unless otherwise implemented).
+No external libraries are required.
