@@ -1,6 +1,6 @@
 # 🌐 Banking Management System 🏦
 
-This is a terminal-based Banking Management System created for my 2025 FALL CSE101 lab project.
+This is a terminal-based Banking Management System created for my 2026 FALL CSE101 lab project.
 The goal of this project is to build a simple but realistic banking application that works completely in the terminal. It allows users to register, login, manage their money, and view their transaction history. 
 Admins can also see system reports and manage settings. 
 
@@ -58,67 +58,67 @@ HOW TO USE
 
 Option 1: Download as ZIP
 
-Click the Code button on the GitHub repository page.
+-Click the Code button on the GitHub repository page.
 
-Select Download ZIP.
+-Select Download ZIP.
 
 Option 2: Clone with Git
 
-git clone https://github.com/GorkemParadise/Banking-Management-System-CSE101PROJECT.git
+>git clone https://github.com/GorkemParadise/Banking-Management-System-CSE101PROJECT.git
 
 ------------------------------
 2. Requirements
 
-Python 3.14 or higher must be installed on your system.
+-Python 3.14 or higher must be installed on your system.
 
-To check if Python is installed:
+-To check if Python is installed:
 
-python --version (generally)
+>python --version (generally)
 
 or
 
-python3 --version (for my pc)
+>python3 --version (for my pc)
 
 ------------------------------
 
 3. Run the Program
 
-Open a terminal or code app.
+-Open a terminal or code app.
 
-cd Banking-Management-System-CSE101PROJECT
+>cd Banking-Management-System-CSE101PROJECT
 
-Run the main file:
+-Run the main file:
 
-python main.py
+>python main.py
 
-or (if required on your system):
+-or (if required on your system):
 
-python3 main.py
+>python3 main.py
 
 ------------------------------
 
 4. Usage
 
-Follow the on-screen menu options.
+-Follow the on-screen menu options.
 
-The program allows you to perform basic banking operations such as:
+-The program allows you to perform basic banking operations such as:
 
-Creating accounts
+-Creating accounts
 
-Depositing money
+-Depositing money
 
-Withdrawing money
+-Withdrawing money
 
-Viewing account information
+-Viewing account information
 
-(All operations are performed through the terminal.)
+>(All operations are performed through the terminal.)
 
 ------------------------------
 
 5. Notes
 
-This project is a CSE101 educational project.
+-This project is a CSE101 educational project.
 
-Data is stored locally and resets when the program is restarted (unless otherwise implemented).
+-No external libraries are required.
 
-No external libraries are required.
+Developed by: Gorkem Ergune
